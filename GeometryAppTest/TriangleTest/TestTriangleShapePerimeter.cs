@@ -11,7 +11,7 @@ namespace GeometryAppTest.TriangleTest
     public class TestTriangleShapePerimeter
     {
         [TestMethod]
-        public void TestTriangle_ValidTriangle_CalculatePerimeter_ReturnsInCorrectValue()
+        public void CalculatePerimeter_WithValidSides_ReturnsInCorrectValue()
         {
             // Arrange
             var triangle = new Triangle(1, 4, 5); 
@@ -23,21 +23,24 @@ namespace GeometryAppTest.TriangleTest
             Assert.AreNotEqual(6, Math.Round(area, 2)); 
         }
 
-        public void TestTriangle_CalculatePerimeter_NegativeSides_ThrowsException()
+        [TestMethod]
+        public void CalculatePerimeter_WithNegativeSides_ThrowsException()
         {
             // Arrange
             var triangle = new Triangle(2, -7, 5); 
-            var area = triangle.CalculatePerimeter();
-            // Assert
-            Assert.ThrowsException<ArgumentException>(() => area);
+
+            // Act & Assert
+            Assert.ThrowsException<ArgumentException>(() => triangle.CalculatePerimeter());
         }
 
-        public void TestTriangle_CalculatePerimeter_ZeroSides_ThrowsException()
+        [TestMethod]
+        public void CalculatePerimeter_WithZeroSides_ThrowsException()
         {
             // Arrange
-            var triangle = new Triangle(0, 0, 0); 
-            var area = triangle.CalculatePerimeter();
-            Assert.ThrowsException<ArgumentException>(() => area);
+            var triangle = new Triangle(0, 0, 0);
+
+            // Act & Assert
+            Assert.ThrowsException<ArgumentException>(() => triangle.CalculatePerimeter());
         }
     }
 }
