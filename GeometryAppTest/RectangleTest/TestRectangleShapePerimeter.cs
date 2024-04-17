@@ -24,7 +24,7 @@ namespace GeometryAppTest.RectangleTest
         }
 
         [TestMethod]
-        public void CalculatePerimeter_ThrowsExceptionOnNegativeSize()
+        public void CalculatePerimeter_ThrowsExceptionOnNegativePerimeter()
         {
             // Arrange
             int height = 5;

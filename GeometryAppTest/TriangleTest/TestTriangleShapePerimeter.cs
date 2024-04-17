@@ -24,7 +24,7 @@ namespace GeometryAppTest.TriangleTest
         }
 
         [TestMethod]
-        public void CalculatePerimeter_WithNegativeSides_ThrowsException()
+        public void CalculatePerimeter_WithNegativeSides_ThrowsArgumentException()
         {
             // Arrange
             var triangle = new Triangle(2, -7, 5); 
@@ -34,7 +34,7 @@ namespace GeometryAppTest.TriangleTest
         }
 
         [TestMethod]
-        public void CalculatePerimeter_WithZeroSides_ThrowsException()
+        public void CalculatePerimeter_WithZeroSides_ThrowsArgumentException()
         {
             // Arrange
             var triangle = new Triangle(0, 0, 0);

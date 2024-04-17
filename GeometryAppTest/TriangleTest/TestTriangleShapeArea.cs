@@ -24,7 +24,7 @@ namespace GeometryAppTest.TriangleTest
         }
 
         [TestMethod]
-        public void CalculateArea_WithNegativeSides_ReturnsZero()
+        public void CalculateArea_WithNegativeSides_ThrowsArgumentException()
         {
             // Arrange
             var triangle = new Triangle(2, -7, 5); 
@@ -34,7 +34,7 @@ namespace GeometryAppTest.TriangleTest
         }
 
         [TestMethod]
-        public void CalculateArea_WithZeroSides_ReturnsZero()
+        public void CalculateArea_WithZeroSides_ThrowsArgumentException()
         {
             // Arrange
             var triangle = new Triangle(0, 2, 4);

@@ -11,7 +11,7 @@ namespace GeometryAppTest.RectangleTest
     public class TestRectangleShapeArea
     {
         [TestMethod]
-        public void CalculateArea_WhenValidDimensions_ReturnsCorrectArea()
+        public void CalculateArea_WithValidDimensions_ReturnsCorrectArea()
         {
             // Arrange
             double height = 5;
@@ -26,7 +26,7 @@ namespace GeometryAppTest.RectangleTest
         }
 
         [TestMethod]
-        public void CalculateArea_WhenZeroDimensions_ReturnsZeroArea()
+        public void CalculateArea_WithZeroDimensions_ReturnsZeroArea()
         {
             // Arrange
             double height = 0;
@@ -41,7 +41,7 @@ namespace GeometryAppTest.RectangleTest
         }
 
         [TestMethod]
-        public void CalculateArea_WhenNegativeDimensions_ThrowsException()
+        public void CalculateArea_WithNegativeDimensions_ReturnsNegativeArea()
         {
             // Arrange
             double height = -5;
