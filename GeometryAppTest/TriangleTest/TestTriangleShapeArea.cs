@@ -11,7 +11,7 @@ namespace GeometryAppTest.TriangleTest
     public class TestTriangleShapeArea
     {
         [TestMethod]
-        public void TestTriangle_ValidTriangle_CalculateArea_ReturnsInCorrectValue()
+        public void CalculateArea_WithValidSides_ReturnsInCorrectValue()
         {
             // Arrange
             var triangle = new Triangle(1, 4, 5); 
@@ -23,22 +23,24 @@ namespace GeometryAppTest.TriangleTest
             Assert.AreNotEqual(6, Math.Round(area, 2)); 
         }
 
-        public void TestTriangle_CalculateArea_NegativeSides_ReturnsZero()
+        [TestMethod]
+        public void CalculateArea_WithNegativeSides_ReturnsZero()
         {
             // Arrange
             var triangle = new Triangle(2, -7, 5); 
-            var area = triangle.CalculateArea();
-            // Assert
-            Assert.IsTrue(area < 0, "Area is less than 0, not a valid triangle");
+
+            // Act & Assert
+            Assert.ThrowsException<ArgumentException>(() => triangle.CalculateArea());
         }
 
-        public void TestTriangle_CalculateArea_ZeroSides_ReturnsZero()
+        [TestMethod]
+        public void CalculateArea_WithZeroSides_ReturnsZero()
         {
             // Arrange
-            var triangle = new Triangle(0, 0, 0); 
-            var area = triangle.CalculateArea();
+            var triangle = new Triangle(0, 2, 4);
 
-            Assert.Equals(0, area);
+            // Act & Assert
+            Assert.ThrowsException<ArgumentException>(() => triangle.CalculateArea());
         }
     }
 }
