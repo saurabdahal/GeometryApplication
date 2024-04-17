@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeometryAppTest
+namespace GeometryAppTest.SquareTest
 {
     [TestClass]
     public class TestSquareShapeArea
@@ -41,7 +41,7 @@ namespace GeometryAppTest
             double expected = 16;
 
             // Act
-            var actual = square.CalculatePerimeter();
+            var actual = square.CalculateArea();
 
             // Assert
             Assert.AreEqual(expected, actual);
