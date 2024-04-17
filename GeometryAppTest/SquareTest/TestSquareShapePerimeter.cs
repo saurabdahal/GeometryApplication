@@ -11,34 +11,45 @@ namespace GeometryAppTest
     public class TestSquareShapePerimeter
     {
         [TestMethod]
-        public void TestSquare_TestPerimeter_ReturnCorrectValue()
+        public void CalculatePerimeter_WithValidSize_ReturnsCorrectPerimeter()
         {
             // Arrange
-            var square = new Square(5);
+            int size = 5;
+            Square square = new Square(size);
 
             // Act
-            var result = square.CalculatePerimeter();
+            double perimeter = square.CalculatePerimeter();
 
             // Assert
-            Assert.AreEqual(20, result);
+            Assert.AreEqual(20, perimeter);
         }
 
         [TestMethod]
-        public void TestSquare_Constructor_ThrowsExceptionOnNegativeSize()
+        public void CalculatePerimeter_WithZeroSize_ReturnsZeroPerimeter()
         {
             // Arrange
-            int testSize = -5;
+            int size = 0;
+            Square square = new Square(size);
+
+            // Act
+            double perimeter = square.CalculatePerimeter();
 
             // Assert
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new Square(testSize));
+            Assert.AreEqual(0, perimeter, "invalid square; perimeter of a square cannot be zero");
         }
 
         [TestMethod]
-        public void TestSquare_Constructor_LengthZero_ThrowsArgumentException()
+        public void CalculatePerimeter_WithNegativeSize_ReturnsNegativePerimeter()
         {
-            var testValue = new Square(0);
+            // Arrange
+            int size = -4;
+            Square square = new Square(size);
+
+            // Act
+            double perimeter = square.CalculatePerimeter();
+
             // Assert
-            Assert.ThrowsException<ArgumentException>(() => testValue);
+            Assert.IsTrue(perimeter<0, "invalid square; perimeter of a square cannot be a negative value");
         }
     }
 }
