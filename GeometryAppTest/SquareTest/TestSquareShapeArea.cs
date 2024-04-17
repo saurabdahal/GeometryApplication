@@ -11,40 +11,38 @@ namespace GeometryAppTest.SquareTest
     public class TestSquareShapeArea
     {
         [TestMethod]
-        public void TestSquare_TestArea_ReturnCorrectValue()
+        public void CalculateArea_WithValidSize_ReturnsCorrectArea()
         {
             // Arrange
-            var square = new Square(5);
+            int size = 5;
+            Square square = new Square(size);
 
             // Act
-            var result = square.CalculateArea();
+            double area = square.CalculateArea();
 
             // Assert
-            Assert.AreEqual(25, result);
+            Assert.AreEqual(25, area);
         }
 
         [TestMethod]
-        public void TestSquare_Constructor_ThrowsExceptionOnNegativeSize()
+        public void CalculateArea_WithZeroSize_ThrowsArgumentException()
         {
             // Arrange
-            int testSize = -5;
+            int size = 0;
 
-            // Assert
-            Assert.ThrowsException<ArgumentOutOfRangeException>(() => new Square(testSize));
+            // Act & Assert
+            Assert.ThrowsException<ArgumentException>(() => new Square(size).CalculateArea());
         }
 
         [TestMethod]
-        public void TestSquare_LengthZero_ThrowsArgumentException()
+        public void CalculateArea_WithNegativeSize_ThrowsArgumentException()
         {
             // Arrange
-            var square = new Square(4);
-            double expected = 16;
+            int size = -5;
 
-            // Act
-            var actual = square.CalculateArea();
 
-            // Assert
-            Assert.AreEqual(expected, actual);
+            // Act & Assert
+            Assert.ThrowsException<ArgumentException>(() => new Square(size).CalculateArea());
         }
     }
 }

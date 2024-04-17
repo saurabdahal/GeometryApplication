@@ -12,10 +12,10 @@ namespace GeometryClassLibrary.ConcreteClasses
         private readonly double _width;
         private readonly double _height;
 
-        public Rectangle(double width, double height)
+        public Rectangle(double height, double width)
         {
-            _width = width;
             _height = height;
+            _width = width;
         }
 
         public double CalculateArea()
@@ -25,6 +25,9 @@ namespace GeometryClassLibrary.ConcreteClasses
 
         public double CalculatePerimeter()
         {
+            if (_width < 0 || _height < 0) throw new ArgumentException("dimensions cannot be negative");
+            if (_width == 0 || _height == 0) throw new ArgumentException("dimensions cannot be zero");
+
             return 2 * (_width + _height);
         }
     }

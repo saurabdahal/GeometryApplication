@@ -1,6 +1,7 @@
 ﻿using GeometryClassLibrary.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,13 +14,13 @@ namespace GeometryClassLibrary.ConcreteClasses
 
         public Square(int size)
         {
-            if (size < 0) throw new ArgumentOutOfRangeException("size should be a positive integer");
-            if(size==0) throw new ArgumentException("The size parameter cannot be zero.");
             _size = size;
         }
 
         public double CalculateArea()
         {
+            if (_size < 0) throw new ArgumentException("size should be a positive integer");
+            if (_size == 0) throw new ArgumentException("The size parameter cannot be zero.");
             return _size * _size;
         }
 

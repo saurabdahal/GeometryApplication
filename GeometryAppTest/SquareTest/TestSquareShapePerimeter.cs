@@ -34,17 +34,11 @@ namespace GeometryAppTest
         }
 
         [TestMethod]
-        public void TestSquare_LengthZero_ThrowsArgumentException()
+        public void TestSquare_Constructor_LengthZero_ThrowsArgumentException()
         {
-            // Arrange
-            var square = new Square(4);
-            double expected = 16;
-
-            // Act
-            var actual = square.CalculatePerimeter();
-
+            var testValue = new Square(0);
             // Assert
-            Assert.AreEqual(expected, actual);
+            Assert.ThrowsException<ArgumentException>(() => testValue);
         }
     }
 }
